@@ -5,11 +5,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="css/style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet" />
   </head>
   <body>
     <!-- header content -->
-    <header></header>
-    <main></main>
-    <footer></footer>
+    <header class="container">
+      <div class="boxImgHero">
+        <img src="https://cdn.prod.website-files.com/61ee468ffc4bd1400391a957/620f4b07a71cce35f7d35085_a45ab6_c74142dcce324477a84a60c8e7e57271_mv2.jpg" alt="hero" class="imgHero" />
+      </div>
+      <p class="titleHero text-4">Menghitung lebih mudah</p>
+    </header>
+
+    <!-- main content -->
+    <main>
+      <section class="boxMain">
+        <section class="about"></section>
+
+        <!-- Form aksi -->
+        <form class="boxForm" onsubmit="event.preventDefault(); convert()">
+          <!-- Form input -->
+          <div class="boxInput">
+            <label for="input1">Celcius(&deg;C)</label>
+            <input type="number" id="input1" name="from" placeholder="Masukkan suhu °C" class="inputValue" />
+            <p class="textError text-1">Anda belum memasukan angka</p>
+          </div>
+          <!-- Form hasil konversi -->
+          <div class="boxInput">
+            <label for="input2">Farenheit (&deg;F)</label>
+            <input id="input2" name="to" class="inputValue" readonly />
+          </div>
+          <!-- Tombol-tombol aksi -->
+          <div class="boxAction">
+            <button type="submit" class="btnAction">Konversi</button>
+            <button class="btnAction" type="button" onclick="resetValue()">Reset</button>
+            <button class="btnAction" type="button" onclick="switchType()">Reverse</button>
+          </div>
+          <!-- Form cara pengerjaan -->
+          <div class="boxInput2">
+            <label>Cara kalkulasi</label>
+            <input id="elaborate" name="elaborate" class="inputValue2" />
+          </div>
+        </form>
+
+        <!-- Informasi langkah pengerjaan -->
+        <section class="boxElaborate"></section>
+      </section>
+    </main>
+
+    <!-- footer content -->
+    <footer class="boxFooter">&copy; 2025 lazzuardi. All right reserved</footer>
+
+    <!-- Import fungsi JavaScript -->
+    <script src="/js/script.js"></script>
   </body>
 </html>
