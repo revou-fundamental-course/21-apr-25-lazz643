@@ -8,6 +8,26 @@ const convert = () => {
   const fromInput = document.getElementById("input1");
   const toInput = document.getElementById("input2");
   const elaborateInput = document.getElementById("elaborate");
+  const elaborateValue1 = `<h2>Cara konversi Celcius ke Farenheit</h2>
+          <br />
+          <hr />
+          <br />
+          <p class="textElaborate text-2">
+            Suhu <i>S</i> dalam derajat Celcius (&deg;C) sama dengan suhu <i>S</i> dalam derajat Farenheit (&deg;F) dikali 9/5 tambah 32. <br /><br />
+            <i>S</i><sub>(&deg;F)</sub> = (<i>S</i><sub>(&deg;C)</sub> × 9/5) + 32 <br />
+            atau<br />
+            <i>S</i><sub>(&deg;F)</sub> = (<i>S</i><sub>(&deg;C)</sub> × 1.8) + 32
+          </p>`;
+  const elaborateValue2 = `<h2>Cara konversi Farenheit ke Celcius</h2>
+          <br />
+          <hr />
+          <br />
+          <p class="textElaborate text-2">
+            Suhu <i>S</i> dalam derajat Farenheit (&deg;F) sama dengan suhu <i>S</i> dalam derajat Celcius (&deg;C) dikurang 32, lalu dikali 5/9 <br /><br />
+            <i>S</i><sub>(&deg;C)</sub> = (<i>S</i><sub>(&deg;F)</sub> - 32 ) × 5/9 <br />
+            atau<br />
+            <i>S</i><sub>(&deg;C)</sub> = (<i>S</i><sub>(&deg;F)</sub> - 32 ) × 0.55
+          </p>`;
 
   let from = parseFloat(fromInput.value);
   let to, formula;
@@ -26,30 +46,12 @@ const convert = () => {
     // Celcius ke Fahrenheit
     to = from * (9 / 5) + 32;
     formula = `${from}°C × 9/5 + 32 = ${to.toFixed(2)}°F`;
-    document.querySelector(".boxElaborate").innerHTML = `<h2>Cara konversi Celcius ke Farenheit</h2>
-          <br />
-          <hr />
-          <br />
-          <p class="textElaborate text-2">
-            Suhu <i>S</i> dalam derajat Celcius (&deg;C) sama dengan suhu <i>S</i> dalam derajat Farenheit (&deg;F) dikali 9/5 tambah 32. <br /><br />
-            <i>S</i><sub>(&deg;F)</sub> = (<i>S</i><sub>(&deg;C)</sub> × 9/5) + 32 <br />
-            atau<br />
-            <i>S</i><sub>(&deg;F)</sub> = (<i>S</i><sub>(&deg;C)</sub> × 1.8) + 32
-          </p>`;
+    document.querySelector(".boxElaborate").innerHTML = elaborateValue1;
   } else {
     // Fahrenheit ke Celcius
     to = (from - 32) * (5 / 9);
     formula = `(${from}°F - 32) × 5/9 = ${to.toFixed(2)}°C`;
-    document.querySelector(".boxElaborate").innerHTML = `<h2>Cara konversi Farenheit ke Celcius</h2>
-          <br />
-          <hr />
-          <br />
-          <p class="textElaborate text-2">
-            Suhu <i>S</i> dalam derajat Farenheit (&deg;F) sama dengan suhu <i>S</i> dalam derajat Celcius (&deg;C) dikurang 32, lalu dikali 5/9 <br /><br />
-            <i>S</i><sub>(&deg;C)</sub> = (<i>S</i><sub>(&deg;F)</sub> - 32 ) × 5/9 <br />
-            atau<br />
-            <i>S</i><sub>(&deg;F)</sub> = (<i>S</i><sub>(&deg;C)</sub> - 32 ) × 0.55
-          </p>`;
+    document.querySelector(".boxElaborate").innerHTML = elaborateValue2;
   }
 
   toInput.value = to.toFixed(2); // toFixed untuk ambil 2 angka dibelakang koma
@@ -61,6 +63,7 @@ const resetValue = () => {
   document.getElementById("input1").value = "";
   document.getElementById("input2").value = "";
   document.getElementById("elaborate").value = "";
+  document.querySelector(".boxElaborate").innerHTML = "";
 };
 
 // Fungsi konversi
